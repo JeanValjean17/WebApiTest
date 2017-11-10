@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="NatgasHOModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="suic">
+          <Key>
+            <PropertyRef Name="id_suic" />
+          </Key>
+          <Property Name="id_suic" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="rom" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="placa" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="nit_centro_informacion" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="nit_taller_conversion" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="nit_empresa_certificadora" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="fecha_certificacion_inicial" Type="datetime" Nullable="false" />
+          <Property Name="fecha_ultima_revision" Type="datetime" Nullable="false" />
+          <Property Name="fecha_proxima_revision" Type="datetime" Nullable="false" />
+          <Property Name="fecha_proxima_revision_quinquenal" Type="datetime" />
+          <Property Name="habilitado" Type="bit" Nullable="false" />
+          <Property Name="ciudad_dane" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="cedula_inspector_certificador" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="id_vehiculo" Type="int" />
+          <Property Name="id_entidad_cliente" Type="int" />
+          <Property Name="id_tipo_documento" Type="int" />
+          <Property Name="documento" Type="varchar" MaxLength="50" />
+          <Property Name="nombre" Type="varchar" MaxLength="200" />
+          <Property Name="direccion" Type="varchar" MaxLength="100" />
+          <Property Name="telefono" Type="varchar" MaxLength="100" />
+          <Property Name="email" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="suic_capacitacion">
+          <Key>
+            <PropertyRef Name="id_suic" />
+          </Key>
+          <Property Name="id_suic" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="rom" Type="nvarchar" MaxLength="60" />
+          <Property Name="fecha" Type="datetime" />
+        </EntityType>
+        <EntityContainer Name="NatgasHOModelStoreContainer">
+          <EntitySet Name="suic" EntityType="Self.suic" Schema="cw_core" store:Type="Tables" />
+          <EntitySet Name="suic_capacitacion" EntityType="Self.suic_capacitacion" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="NatgasHOModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="NatgasHO" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="suic" EntityType="NatgasHOModel.suic" />
+          <EntitySet Name="suic_capacitacion" EntityType="NatgasHOModel.suic_capacitacion" />
+        </EntityContainer>
+        <EntityType Name="suic">
+          <Key>
+            <PropertyRef Name="id_suic" />
+          </Key>
+          <Property Name="id_suic" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="rom" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="placa" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="nit_centro_informacion" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="nit_taller_conversion" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="nit_empresa_certificadora" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="fecha_certificacion_inicial" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="fecha_ultima_revision" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="fecha_proxima_revision" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="fecha_proxima_revision_quinquenal" Type="DateTime" Precision="3" />
+          <Property Name="habilitado" Type="Boolean" Nullable="false" />
+          <Property Name="ciudad_dane" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="cedula_inspector_certificador" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="id_vehiculo" Type="Int32" />
+          <Property Name="id_entidad_cliente" Type="Int32" />
+          <Property Name="id_tipo_documento" Type="Int32" />
+          <Property Name="documento" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="nombre" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="direccion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="telefono" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="suic_capacitacion">
+          <Key>
+            <PropertyRef Name="id_suic" />
+          </Key>
+          <Property Name="id_suic" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="rom" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="fecha" Type="DateTime" Precision="3" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="NatgasHOModelStoreContainer" CdmEntityContainer="NatgasHO">
+          <EntitySetMapping Name="suic">
+            <EntityTypeMapping TypeName="NatgasHOModel.suic">
+              <MappingFragment StoreEntitySet="suic">
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="telefono" ColumnName="telefono" />
+                <ScalarProperty Name="direccion" ColumnName="direccion" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="documento" ColumnName="documento" />
+                <ScalarProperty Name="id_tipo_documento" ColumnName="id_tipo_documento" />
+                <ScalarProperty Name="id_entidad_cliente" ColumnName="id_entidad_cliente" />
+                <ScalarProperty Name="id_vehiculo" ColumnName="id_vehiculo" />
+                <ScalarProperty Name="cedula_inspector_certificador" ColumnName="cedula_inspector_certificador" />
+                <ScalarProperty Name="ciudad_dane" ColumnName="ciudad_dane" />
+                <ScalarProperty Name="habilitado" ColumnName="habilitado" />
+                <ScalarProperty Name="fecha_proxima_revision_quinquenal" ColumnName="fecha_proxima_revision_quinquenal" />
+                <ScalarProperty Name="fecha_proxima_revision" ColumnName="fecha_proxima_revision" />
+                <ScalarProperty Name="fecha_ultima_revision" ColumnName="fecha_ultima_revision" />
+                <ScalarProperty Name="fecha_certificacion_inicial" ColumnName="fecha_certificacion_inicial" />
+                <ScalarProperty Name="nit_empresa_certificadora" ColumnName="nit_empresa_certificadora" />
+                <ScalarProperty Name="nit_taller_conversion" ColumnName="nit_taller_conversion" />
+                <ScalarProperty Name="nit_centro_informacion" ColumnName="nit_centro_informacion" />
+                <ScalarProperty Name="placa" ColumnName="placa" />
+                <ScalarProperty Name="rom" ColumnName="rom" />
+                <ScalarProperty Name="id_suic" ColumnName="id_suic" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="suic_capacitacion">
+            <EntityTypeMapping TypeName="NatgasHOModel.suic_capacitacion">
+              <MappingFragment StoreEntitySet="suic_capacitacion">
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="rom" ColumnName="rom" />
+                <ScalarProperty Name="id_suic" ColumnName="id_suic" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
